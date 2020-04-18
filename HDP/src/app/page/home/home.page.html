@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="!crearSala">
+      <ion-icon name="game-controller-outline" slot="start"></ion-icon>
+      Inicio - HDP
+    </ion-title>
+    <ion-title *ngIf="crearSala">
+      <ion-icon name="arrow-back-outline" (click)="volver()"></ion-icon>
+      Crear Sala
+      </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!crearSala" style="margin-top: 6rem;">
+    <ion-grid>
+      <ion-row class="img_home">
+        <ion-col>
+          <ion-card class="card-img">
+            <img src="https://1.bp.blogspot.com/-BGcKVJKAQk0/WRkIE6QUa5I/AAAAAAAAAmM/NllCtPw-0r4PfP5Hp-nd9-gHM-dkKGWAgCLcB/w1200-h630-p-k-no-nu/Plantilla%2B3B.jpg">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!salaActiva" style="margin: 0 1.7rem 0 1.7rem;">
+        <ion-col>
+          <ion-card>
+            <ion-button class="btn-crear-sala" expand="block" (click)="crear()" color="dark">
+              Crear sala
+            </ion-button>
+          </ion-card>
+        </ion-col>   
+        <ion-col *ngIf="!salaActiva">
+          <ion-card>
+              <ion-input (keyup)="btnNroSala()" type="text" [(ngModel)]="codigo" name="codigo" color="dark" placeholder="Ingrese Nro de Sala"></ion-input>
+          <ion-button [ngClass]="{'enabled':btnEnabled, 'disabled':!btnEnabled}" expand="block" (click)="unirseSala()" color="dark">
+            Unirse a sala
+          </ion-button>
+          </ion-card>      
+        </ion-col>
+      </ion-row>
+      <br><br>
+      <ion-row>
+        <ion-col *ngIf="salaActiva">
+          <ion-button color="dark" (click)="MiSala()"> Ir a tu sala</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+ 
+  <div *ngIf="crearSala" style="margin-top: 13rem;">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <h4>Empezando...</h4>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item >
+            <ion-label>Elige la cantidad de jugadores</ion-label>
+            <ion-select okText="Ok"  cancelText="Cancelar" [(ngModel)]="sala.cantJugadores" (ionChange)="Jugadores()">
+              <ion-select-option value="4">4</ion-select-option> 
+              <ion-select-option value="5">5</ion-select-option>
+              <ion-select-option value="6">6</ion-select-option>
+              <ion-select-option value="7">7</ion-select-option>
+              <ion-select-option value="8">8</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

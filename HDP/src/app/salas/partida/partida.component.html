@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: grid; grid-template-columns:7fr 1fr; grid-template-rows: auto;">
+      <div style="margin: auto 0 auto 2rem;">
+        <ion-title>
+          <ion-label>
+            <b>Sala - {{usuario.codigo}} &nbsp;&nbsp; Puntos para ganar: {{sala.puntoGanador}}</b>
+          </ion-label> 
+        </ion-title>
+      </div>
+      <div>
+        <ion-button color="dark">
+          Salir
+        </ion-button>
+      </div>
+    </div>
+    <!-- Item Full Lines -->
+    <!-- <ion-item lines="full">
+     
+    </ion-item> -->
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <div class="ion-content">
+    <div>
+      <ion-card scroll="true">
+        <ion-grid>
+          <ion-text color="dark" text-center style="margin: auto;">
+            <p>Inicio de la Partida</p>
+          </ion-text>
+          <ion-row *ngFor="let message of messages">
+       
+            <ion-col  size="9" *ngIf="message.user !== currentUser && message.sala === usuario.codigo" class="message other-message">
+              <b>{{ message.user }}:</b><br>
+              <span>{{ message.msg }}</span>
+              <div class="time" text-right><br>{{ message.createdAt | date:"hh:mm dd/MM/yy" }}</div>
+            </ion-col>
+       
+            <ion-col offset="3" size="9" *ngIf="message.user == currentUser" class="message my-message">
+              <b>Tu:</b><br>
+              <span>{{ message.msg }}</span>
+              <div class="time" text-right><br>{{ message.createdAt | date:"hh:mm dd/MM/yy" }}</div>
+            </ion-col>
+       
+          </ion-row>
+        </ion-grid>
+       </ion-card>
+    </div>
+      <div>
+       <ion-list style="position: fixed;">
+         <ion-item>
+           <div style="display: grid; grid-template-columns: 5fr 1fr;">
+             <div>
+               <b>Jugadores</b>
+             </div>
+             <div>
+               <b>Puntos</b>
+             </div>
+           </div>
+         </ion-item>
+          <ion-item lines="full" style="padding: 0;" *ngFor="let _jugador of jugadores">
+              <div class="usuarios-conectados">
+                <div style="display: flex;">
+                  <ion-avatar color="dark" slot="end">
+                    <img class="avatar" *ngIf="_jugador.genero == '1' ? true : false" src="../../../assets/avatar/avatar-female.jfif">
+                    <img class="avatar" *ngIf="_jugador.genero == '0' ? true : false" src="../../../assets/avatar/user-male.jpg">
+          
+                  </ion-avatar>
+                    
+                  <span class="nombre-conectado" *ngIf="_jugador.nombre === currentUser " >&nbsp;&nbsp;&nbsp;Tu&nbsp;&nbsp;&nbsp;</span>
+                  <span class="nombre-conectado" *ngIf="_jugador.nombre !== currentUser ">&nbsp;&nbsp;&nbsp;{{_jugador.nombre}}&nbsp;&nbsp;&nbsp;</span>
+                </div>
+                <div style="display: flex; justify-content: flex-end;
+                align-items: center;">
+                  <ion-label class="puntos">
+                     4
+                  </ion-label>
+                </div>  
+              </div> 
+          </ion-item>
+        </ion-list>
+    </div> 
+  </div>
+</ion-content>
+ 
+<ion-footer>
+  <div class="controles">
+    <div>
+      <ion-toolbar color="light">
+        <ion-row align-items-center style="background-color: var(--ion-color-dark);">
+          <ion-col size="10">
+            <ion-textarea auto-grow class="message-input" rows="1" [(ngModel)]="message"></ion-textarea>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button expand="block" fill="clear" [disabled]="message === ''" class="msg-btn"
+              (click)="sendMessage()" color="light">
+              <ion-icon name="send" slot="icon-only" color="light"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>  
+    </div>
+    <div>
+      <ion-button color="dark">
+        Comenzar
+      </ion-button>
+    </div>
+  </div>
+</ion-footer>

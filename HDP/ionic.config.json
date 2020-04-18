@@ -1,0 +1,7 @@
+{
+  "name": "HDP",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

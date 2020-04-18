@@ -1,0 +1,4 @@
+-Cuando crea un usuario-jugador para integrarse a la sala, debe validar que no supere
+la cantidad de jugadores elegidos por el jugador creador de la sala.
+
+-Poder cerrar la sala para poder ingresar a otra.

@@ -1,0 +1,27 @@
+// .padding-bottom{
+//     padding-bottom: 5%;
+// }
+
+.content{
+    --ion-background-color:  rgba(166,105,7,1);
+}
+
+    .header{
+        --background: #ccc url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRk1YxMgvcwiXs_M7Mq3ouTVdnMgw2LCq4Rz4V8fOrS7Q6YwWpk&usqp=CAU') no-repeat 100% 100%;
+    }
+
+.header{
+    margin-top: -35px;
+}
+.ion-header{
+    --background: linear-gradient(to right, rgba(10,50,87,1) 11%, rgba(10,50,87,1) 26%, rgba(9,39,73,1) 50%, rgba(9,39,73,1) 97%) !important;
+}
+#jugador{
+    background-color: linear-gradient(to right, rgba(10,50,87,1) 11%, rgba(10,50,87,1) 26%, rgba(9,39,73,1) 50%, rgba(9,39,73,1) 97%) !important;
+}
+ion-card{
+    --ion-background-color:white;
+}
+.salir{
+    --ion-background-color:white;
+}

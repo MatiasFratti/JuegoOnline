@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingresa tus datos</ion-title>
+    <ion-icon name="close-outline" (click)='cerrar()'></ion-icon>
+  </ion-toolbar>
+  
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      <b>Cantidad de Jugadores:</b>&nbsp;
+      {{service.cantJugadores.value}}
+    </ion-label>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label>
+      <b>Ingrese su Nick name</b>
+     
+    </ion-label>
+    <ion-input color="black" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item >
+    <ion-label> Ingresa los puntos para ganar</ion-label>
+    <ion-select okText="Ok" cancelText="Cancelar" [(ngModel)]="sala.puntoGanador">
+      <ion-select-option value="5">5</ion-select-option> 
+      <ion-select-option value="8">8</ion-select-option>
+      <ion-select-option value="10">10</ion-select-option>
+      <ion-select-option value="13">13</ion-select-option>
+      <ion-select-option value="15">15</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <ion-list>
+    <ion-radio-group (ionChange)="Genero($event)">
+      <ion-list-header>
+        <ion-label>
+          Genero
+        </ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Masculino</ion-label>
+        <ion-radio value="0" [(ngModel)]="masculino"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Femenino</ion-label>
+        <ion-radio value="1" [(ngModel)]="femenino"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    
+  </ion-list>
+  <ion-item>
+    <ion-label>
+      <b>Sala generada</b>
+      <h3>{{home.sala.codigo}}</h3>
+    </ion-label>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-card>
+      <ion-button (click)="ir_a_sala()">
+        Ir a la Sala 
+      </ion-button>
+    </ion-card>
+  </ion-item>
+  
+</ion-content>

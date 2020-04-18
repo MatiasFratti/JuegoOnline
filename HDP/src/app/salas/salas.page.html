@@ -1,0 +1,116 @@
+<ion-header class="ion-header">
+  <ion-toolbar>
+    <ion-title *ngIf="!SumarseASala">
+      <b class="padding-bottom">Jugadores restantes</b>   
+      <ion-badge color="dark">{{restantes}}</ion-badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-spinner color="primary" float></ion-spinner>
+      
+      
+    </ion-title>
+    <ion-title *ngIf="SumarseASala">
+      <ion-icon name="arrow-back-outline" (click)="volver()"></ion-icon>
+      Sumarse a la Sala: {{params}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <ion-grid *ngIf="!sesion">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <!-- <form (ngSubmit)="logForm()"> -->
+            <ion-item>
+              <ion-label><b>Ingrese su Alias:</b></ion-label>
+              <ion-input type="text" [(ngModel)]="usuario.nombre" name="nombre" (keyup)="validarIngresoSala()"></ion-input>
+            </ion-item>
+            <ion-list>
+              <ion-radio-group (ionChange)="Genero($event)">
+                <ion-list-header>
+                  <ion-label>
+                    Genero
+                  </ion-label>
+                </ion-list-header>
+            
+                <ion-item>
+                  <ion-label>Masculino</ion-label>
+                  <ion-radio value="0" [(ngModel)]="masculino"></ion-radio>
+                </ion-item>
+            
+                <ion-item>
+                  <ion-label>Femenino</ion-label>
+                  <ion-radio value="1" [(ngModel)]="femenino"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+              
+            </ion-list>
+            <ion-button class="salir" *ngIf="validarIngresoNuevoJugador" expand="block" (click)="SumarseSala()" color="dark">Ingresar</ion-button>
+          <!-- </form> -->
+        </ion-card>   
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <br>
+<ion-grid *ngIf="sesion" class="header">
+  <!-- <ion-row>
+    <ion-col>
+      <ion-label>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRk1YxMgvcwiXs_M7Mq3ouTVdnMgw2LCq4Rz4V8fOrS7Q6YwWpk&usqp=CAU" style="width: 100%; margin: auto; display: flex;">                
+        <h1>Sala - <b>{{salaSesion.codigo}}</b></h1>
+      </ion-label>
+    </ion-col>
+  </ion-row> -->
+  <ion-row >
+    <ion-col>
+      <!-- <ion-card id="jugador">
+        <ion-list>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img *ngIf="usuario.genero == '0' ? true : false" src="../../assets/avatar/user-male.jpg">
+              <img *ngIf="usuario.genero == '1' ? true : false" src="../../assets/avatar/avatar-female.jfif">
+            </ion-avatar>
+            <ion-label>
+              <h2><b>{{salaSesion.nombre}}</b></h2>
+              <h2 style="color:green">Activa</h2>
+             
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card> -->
+      <h2>Sala N° {{salaSesion.codigo}}</h2>
+    </ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col>
+      <ion-label>
+        <b>Participantes Registrados</b>
+      </ion-label>
+      <ion-card>
+        <div *ngFor="let player of jugadores">
+          <ion-list>
+            <ion-item>
+              <ion-avatar slot="start">
+                <img *ngIf="player.genero == '0' ? true : false" src="../../assets/avatar/user-male.jpg">
+                <img *ngIf="player.genero == '1' ? true : false" src="../../assets/avatar/avatar-female.jfif">
+              </ion-avatar>
+              <ion-label>
+                <h2><b>{{player.nombre}}</b></h2>
+                <h2 style="color:green">Activa</h2>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button class="salir" expand="block" color="dark">
+        Abandonar Sala
+      </ion-button>
+      <ion-button (click)="irPartida()" class="salir" expand="block" color="dark">
+        Entrar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,30 @@
+.disabled{
+    pointer-events:none;
+    cursor:not-allowed !important;
+}
+.enabled{
+    pointer-events: all;
+    cursor: pointer;
+}
+:host{
+    ion-content{
+        --ion-backgroun-color:rgba(166,105,7,1);
+    }
+}
+ion-card img{
+    width: 100%;
+    margin: auto;
+    object-fit: cover;
+    align-items: center;
+}
+.card-img{
+    width: 92%;
+    height: 50%;
+    margin: auto;
+}
+.img_home{
+    height: 15rem;
+}
+.btn-crear-sala{
+    height: 4.5rem;
+}

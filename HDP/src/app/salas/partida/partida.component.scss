@@ -1,0 +1,70 @@
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 2px;
+    white-space: pre-wrap;
+  }
+   
+  .my-message {
+    background:var(--ion-color-dark);
+    color: white;
+  }
+   
+  .other-message {
+    background: #808080;
+    color: white;
+  }
+   
+  .time {
+    color: #bfbfbf;
+    float: right;
+    font-size: small;
+  }
+   
+  .message-input {
+    margin-top: 0px;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: var(--ion-color-dark);
+    color: #efffff;
+  }
+   
+  .msg-btn {
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+    --ion-background-color: #efffff;
+    color: white;
+  }
+  .ion-content{
+      display: grid;
+      grid-template-columns: 672px auto;
+      grid-template-rows: 23rem;
+      background-image: url('https://i0.wp.com/mrdm.store/wp-content/uploads/2017/03/HDP-Ejemplos.png?fit=640%2C639&ssl=1') no-repeat;
+  }
+  .controles{
+    display: grid;
+    grid-template-columns: 672px auto;
+    grid-template-rows: 50px;
+  }
+  img{
+      max-width: 42rem;
+  }
+  .avatar{
+    
+    max-width:5rem;
+  }
+  ion-text{
+    display: flex;
+    justify-content: center;
+  }
+  .usuarios-conectados{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    width: 100%;
+  }
+  .nombre-conectado{
+    margin: auto 0;
+  }
+  .puntos{
+
+  }
